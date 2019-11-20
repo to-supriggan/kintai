@@ -1,0 +1,13 @@
+.header
+  .box
+    %h3.box__text
+      = link_to root_path do
+        勤怠アプリ(試作)
+    %ul.box__list
+      - if user_signed_in?
+        %li.box__list__item
+          = link_to root_path do
+            = fa_icon "address-card", class: "icon"
+        %li.box__list__item
+          = link_to edit_user_path(current_user.id) do
+            = fa_icon "cog", class: "icon"
