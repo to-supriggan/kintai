@@ -1,0 +1,19 @@
+.wrapper
+  -# ヘッダー
+  = render "sheard/header"
+
+.reason
+  - flash.each do |key, value|
+    = content_tag :div, value, class: key
+  -# 入力フォーム
+  = form_with model: @reason do |f|
+    .input-box
+      .input-box__day
+        = f.label  :day   , "休日指定"
+        %br
+        = f.select :day   , @days
+      .input-box__reason
+        = f.label  :reason, "休む理由"
+        %br
+        = f.select :reason, [["体調不良", "体調不良"], ["子供の病気", "子供の病気"],["親の介護", "親の介護"],["悪天候", "悪天候"],["災害", "災害"],["冠婚葬祭", "冠婚葬祭"],["旅行","旅行"],["法事", "法事"],["検診", "検診"],["なんとなく", "なんとなく"],["何にも手に付かない", "何にも手に付かない"],["その他", "その他"]]
+    = f.submit "送信", class: "reason__commit"

@@ -1,8 +1,14 @@
 .header
   .box
     %h3.box__text
-      = link_to root_path do
-        勤怠アプリ(試作)
+      - if user_signed_in?
+        = link_to root_path do
+          勤怠アプリ(
+          = current_user.name
+          )
+      - else
+        = link_to root_path do
+          勤怠アプリ( 試作 )
     %ul.box__list
       - if user_signed_in?
         %li.box__list__item

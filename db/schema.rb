@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_035130) do
   end
 
   create_table "reasons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "day"
     t.string "reason", null: false
     t.bigint "user_id"
     t.bigint "worktime_id"

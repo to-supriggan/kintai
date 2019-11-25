@@ -14,6 +14,25 @@ a {
 
 
 .wrapper {
+  .notice {
+    text-align: center;
+    text-transform: uppercase;
+    /* 背景グラデーションを指定・幅を 200% にしておく */
+    background: linear-gradient(to right, #f00 0%, #f80 14.28%, #dd0 28.56%, #0d0 42.85%, #0dd 57.14%, #00f 71.42%, #e0e 85.71%, #f00 100%) 0% center / 200% auto;
+    /* 背景画像を文字でマスクする */
+            background-clip: text;
+    -webkit-background-clip: text;
+    /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
+    -webkit-text-fill-color: transparent;
+    /* アニメーション指定 */
+    animation: notice 4s linear infinite;
+  }
+  
+  /* 背景の横位置をズラす */
+  @keyframes notice {
+    to { background-position-x: 200%; }
+  }
+
   .header {
     height: 80px;
     width: 100%;
@@ -71,5 +90,4 @@ a {
       }
     }
   }
-
 }

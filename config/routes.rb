@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root "menus#index"
   resources :users, only: [:index, :edit, :update]
   resources :worktimes, only: [:show, :create, :update]
+  resources :reasons, only: [:index, :show, :create, :update]
 end
