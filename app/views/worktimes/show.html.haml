@@ -2,16 +2,11 @@
   = render "sheard/header"
 
   .menu
-    - if user_signed_in?
-      .btn-list
-        =link_to worktimes_path, class: "btn", method: "POST" do
-          出勤
-        =link_to worktime_path, class: "btn", method: "PUT" do
-          退勤
-      .form
-    - else
-      .btn-list
-        =link_to new_user_registration_path, class: "btn" do
-          新規アカウントの作成
-        =link_to new_user_session_path, class: "btn" do
-          ログイン
+    - flash.each do |key, value|
+      = content_tag :div, value, class: key
+    .btn-list
+      =link_to worktimes_path, class: "btn", method: "POST" do
+        出勤
+      =link_to worktime_path, class: "btn", method: "PUT" do
+        退勤
+    .from

@@ -3,11 +3,13 @@
   = render "sheard/header"
   -# メニュー
   .menu
+    - flash.each do |key, value|
+      = content_tag :div, value, class: key
     - if user_signed_in?
       .btn-list
         =link_to worktime_path(current_user.id), class: "btn",data: {"turbolinks": false} do
           勤怠状況
-        =link_to root_path, class: "btn",data: {"turbolinks": false} do
+        =link_to reasons_path, class: "btn",data: {"turbolinks": false} do
           休日事由
         =link_to root_path, class: "btn",data: {"turbolinks": false} do
           月間実績
