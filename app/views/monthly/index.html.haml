@@ -2,3 +2,15 @@
   -# ヘッダー
   = render "sheard/header"
 
+  .menu
+    - if @datas.present?
+      - @datas.each do |data|
+        .data
+          =link_to monthshow_monthly_index_path(year: data.year, month: data.month), class: "data__link", method: :POST do
+            #{data.year}年#{data.month}月の実績
+    - else
+      %h1
+        あなたはまだ出勤していません。
+    = link_to root_path,class: "btn" do
+      前ページに戻る
+

@@ -10,12 +10,12 @@ class ReasonsController < ApplicationController
   end
 
   def create
-    if Worktime.all.where("user_id = ? and day = ?", current_user.id, @day).blank?
-      if !Reason.all.where("user_id = ? and day = ?", current_user.id, @day).blank?
+    if Worktime.all.where("user_id = ? and year = ? and month = ? and day = ?", current_user.id, @day.strftime("%Y"), @day.strftime("%m"), @day.strftime("%d")).blank?
+      if !Reason.all.where("user_id = ? and year = ? and month = ? and day = ?", current_user.id, @day.strftime("%Y"), @day.strftime("%m"), @day.strftime("%d")).blank?
         flash[:notice] = "すでに休みの連絡を出してます。"
         redirect_to reasons_path
       else
-        Reason.create(day: @day, reason: @reason, user_id: current_user.id)
+        Reason.create(year: @day.strftime("%Y"), month: @day.strftime("%m"), day: @day.strftime("%d"), reason: @reason, user_id: current_user.id)
         redirect_to root_path
       end
     else
@@ -27,7 +27,7 @@ class ReasonsController < ApplicationController
   private
 
   def set_reason_param
-    @day = params.permit(:day).values[0]
+    @day = params.permit(:day).values[0].to_date
     @reason = params.permit(:reason).values[0]
   end
 
