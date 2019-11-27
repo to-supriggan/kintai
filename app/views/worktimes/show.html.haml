@@ -1,12 +1,35 @@
 .wrapper
   = render "sheard/header"
 
-  .menu
-    - flash.each do |key, value|
-      = content_tag :div, value, class: key
+  .worktime-space
     .btn-list
+      - flash.each do |key, value|
+        = content_tag :div, value, class: key
       =link_to worktimes_path, class: "btn", method: "POST" do
         出勤
       =link_to worktime_path, class: "btn", method: "PUT" do
         退勤
-    .from
+    .display-space
+      -if @worktime.present?
+        .display-space__go
+          本日の日付:
+          = @today.strftime("%Y年%m月%d日")
+        .display-space__go
+          出勤時間:
+          - if @worktime.attendance?
+            = @worktime.attendance.strftime("%H:%M")
+          - else
+            未打刻
+        .display-space__go
+          退勤時間:
+          - if @worktime.retirement?
+            = @worktime.retirement.strftime("%H:%M")
+          - else
+            未打刻
+      -if @rest.present?
+        .display-space__rest
+          本日の日付:
+          = @today.strftime("%Y年%m月%d日")
+        .display-space__rest
+          休日事由:
+          = @rest.reason

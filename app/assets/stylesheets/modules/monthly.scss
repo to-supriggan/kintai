@@ -1,0 +1,70 @@
+.menu {
+  h1 {
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+  }
+
+  table {
+    margin: 0 auto;
+    color: white;
+    border-top:1px solid white;
+    border-left:1px solid white;
+    th {
+      font-size: 2rem;
+      padding:3px 10px 3px 10px;
+      text-align: center;
+      border-right:1px solid white;
+      border-bottom:1px solid white;
+    }
+    td {
+      font-size: 1.3rem;
+      padding:3px 10px 3px 10px;
+      text-align: center;
+      border-right:1px solid white;
+      border-bottom:1px solid white;
+    }
+  }
+
+  .data {
+    text-align: center;
+    &__link {
+      font-size: 2rem;
+      color: $color_skyblue;
+      text-decoration: underline;
+    }
+  }
+
+  .btn {
+    font-size: 2rem;
+    display: block;
+    cursor: pointer;
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 20px 20px;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: inherit;
+    background: #4682b4;
+    box-shadow: 0 6px 0 #336699, 0 12px 0 rgba(0,0,0,.2);
+    transition: color .3s, background .3s, box-shadow .3s, transform 0.3s;
+  }
+  .btn:hover {
+    background: #3e62ad;
+    box-shadow: 0 3px 0 #243d5c, 0 6px 0 rgba(0,0,0,.2);
+    transform: translateY(3px);
+  }
+  .btn:active {
+    color: #ddd;
+    background: #336699;
+    box-shadow: 0 0 0 #202f55, 0 0 0 rgba(0,0,0,.2);
+    transform: translateY(6px);
+    transition-duration: .1s;
+  }
+}

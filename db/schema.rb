@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(version: 2019_11_19_035130) do
   end
 
   create_table "reasons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "day"
+    t.string "year"
+    t.string "month"
+    t.string "day"
     t.string "reason", null: false
     t.bigint "user_id"
-    t.bigint "worktime_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reasons_on_user_id"
-    t.index ["worktime_id"], name: "index_reasons_on_worktime_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -42,7 +42,9 @@ ActiveRecord::Schema.define(version: 2019_11_19_035130) do
   end
 
   create_table "worktimes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "day"
+    t.string "year"
+    t.string "month"
+    t.string "day"
     t.time "attendance"
     t.time "retirement"
     t.bigint "user_id"
@@ -51,6 +53,5 @@ ActiveRecord::Schema.define(version: 2019_11_19_035130) do
     t.index ["user_id"], name: "index_worktimes_on_user_id"
   end
 
-  add_foreign_key "reasons", "worktimes"
   add_foreign_key "worktimes", "users"
 end

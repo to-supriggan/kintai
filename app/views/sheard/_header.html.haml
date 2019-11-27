@@ -3,14 +3,15 @@
     %h3.box__text
       - if user_signed_in?
         = link_to root_path do
-          勤怠アプリ(
           = current_user.name
-          )
       - else
         = link_to root_path do
           勤怠アプリ( 試作 )
     %ul.box__list
       - if user_signed_in?
+        %li.box__list__item
+          = link_to root_path do
+            = fa_icon "home", class: "icon"
         %li.box__list__item
           = link_to root_path do
             = fa_icon "address-card", class: "icon"

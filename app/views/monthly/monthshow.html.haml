@@ -1,0 +1,26 @@
+.wrapper
+  -# ヘッダー
+  = render "sheard/header"
+
+  .menu
+    %h1
+      #{@year}年#{@month}月の実績
+    %table.data
+      %tr
+        %th
+          =link_to dayshow_monthly_index_path(year: @year, month: @month), class: "data__link", method: :POST do
+            総出勤日/日
+        %th.labelname
+          総稼働時間/h
+        %th
+          =link_to dayshow_monthly_index_path(year: @year, month: @month), class: "data__link", method: :POST do
+            総取得休日/日
+        %tr
+          %td
+            = @go_count
+          %td
+            = @time_h
+          %td
+            = @rest_count
+    = link_to monthly_index_path ,class: "btn" do
+      前ページに戻る

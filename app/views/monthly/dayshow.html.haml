@@ -1,0 +1,42 @@
+.wrapper
+  -# ヘッダー
+  = render "sheard/header"
+
+  .menu
+    %h1
+      #{@year}年#{@month}月の実績
+    - if @go_work.present?
+      %h2 出勤
+      %table
+        %tr
+          %th 出勤日
+          %th 出勤時間
+          %th 退勤時間
+          - @go_work.each do |go|
+            %tr
+              %td
+                #{go.year}年#{go.month}月#{go.day}日
+              %td
+                = go.attendance.strftime("%H:%M")
+              - if go.retirement?
+                %td
+                  = go.retirement.strftime("%H:%M")
+              - else
+                %td
+                  未
+      %br
+
+    - if @rest_work.present?
+      %h2 休日
+      %table
+        %tr
+          %th 休日
+          %th 理由
+          - @rest_work.each do |rest|
+            %tr
+              %td
+                #{rest.year}年#{rest.month}月#{rest.day}日
+              %td
+                = rest.reason
+    = link_to :back ,class: "btn", method: :post do
+      前ページに戻る
