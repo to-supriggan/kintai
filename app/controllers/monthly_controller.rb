@@ -17,14 +17,14 @@ class MonthlyController < ApplicationController
     time_total = 0
     @go_work.each do |go|
       time_con = go.retirement.present? ? (time_con = go.retirement - go.attendance) : 0;
-      if time_total == 0
-        time_total = time_con
+      if time_con < 0
+        time_total = time_total + (time_con + (24 * 3600))
       else
         time_total = time_total + time_con
       end
     end
     time_s = time_total.to_f
-    @time_h = sprintf("%.2f", time_s /3600)
+    @time_h = sprintf("%.2f", time_s / 3600)
 
     # 休日の回数
     @rest_count = @rest_work.count
