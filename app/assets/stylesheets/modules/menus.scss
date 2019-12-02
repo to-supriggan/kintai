@@ -89,5 +89,15 @@ a {
         transition-duration: .1s;
       }
     }
+
+    .linker {
+      padding: 20px;
+      color: #ddd;
+      text-align: center;
+      &__link {
+        color: $color_skyblue;
+        text-decoration: underline;
+      }
+    }
   }
 }

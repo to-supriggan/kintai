@@ -9,11 +9,15 @@
         出勤
       =link_to worktime_path, class: "btn", method: "PUT" do
         退勤
+      .linker
+        打刻誤りを修正する場合は
+        =link_to pre_edit_worktimes_path, class: "linker__link" do
+          こちら
     .display-space
       -if @worktime.present?
         .display-space__go
           本日の日付:
-          = @today.strftime("%Y年%m月%d日")
+          #{@now_day.strftime("%Y")}年#{@now_day.strftime("%m")}月#{@now_day.strftime("%d")}日
         .display-space__go
           出勤時間:
           - if @worktime.attendance?

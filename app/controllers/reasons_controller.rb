@@ -2,10 +2,11 @@ class ReasonsController < ApplicationController
   before_action :set_reason_param, only: [:create]
 
   def index
-    now_day = Date.today
+    @now_day = Date.today
+    old_day = Date.today - 20
     @days = []
-    for num in 0..6 do
-      @days << now_day + num
+    for num in 0..26 do
+      @days << old_day + num
     end
   end
 

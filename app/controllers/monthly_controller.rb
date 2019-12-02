@@ -17,7 +17,6 @@ class MonthlyController < ApplicationController
     time_total = 0
     @go_work.each do |go|
       time_con = go.retirement.present? ? (time_con = go.retirement - go.attendance) : 0;
-
       if time_total == 0
         time_total = time_con
       else
@@ -40,9 +39,9 @@ class MonthlyController < ApplicationController
   private
   def days_param
     # 出勤日のリスト作成
-    @go_work = Worktime.all.where("user_id = ? and year = ? and month = ?", current_user.id, params[:year], params[:month])
+    @go_work = Worktime.all.where("user_id = ? and year = ? and month = ?", current_user.id, params[:year], params[:month]).order(year: "DESC", month: "DESC", day: "DESC")
 
     # 休日のリスト作成
-    @rest_work = Reason.all.where("user_id = ? and year = ? and month = ?", current_user.id, params[:year], params[:month])
+    @rest_work = Reason.all.where("user_id = ? and year = ? and month = ?", current_user.id, params[:year], params[:month]).order(year: "DESC", month: "DESC", day: "DESC")
   end
 end

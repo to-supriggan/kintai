@@ -1,5 +1,4 @@
 .wrapper
-  -# ヘッダー
   = render "sheard/header"
 
   .menu
@@ -15,7 +14,8 @@
           - @go_work.each do |go|
             %tr
               %td
-                #{go.year}年#{go.month}月#{go.day}日
+                = link_to edit_worktime_path(go.id), class: "link" do
+                  #{go.year}年#{go.month}月#{go.day}日
               %td
                 = go.attendance.strftime("%H:%M")
               - if go.retirement?
@@ -24,18 +24,5 @@
               - else
                 %td
                   未
-
-    - if @rest_work.present?
-      %h2 休日
-      %table
-        %tr
-          %th 休日
-          %th 理由
-          - @rest_work.each do |rest|
-            %tr
-              %td
-                #{rest.year}年#{rest.month}月#{rest.day}日
-              %td
-                = rest.reason
-    = link_to :back ,class: "btn", method: :post do
+    = link_to pre_edit_worktimes_path ,class: "btn" do
       前ページに戻る
