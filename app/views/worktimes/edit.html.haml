@@ -1,0 +1,42 @@
+.wrapper
+  = render "sheard/header"
+
+  .menu
+    - flash.each do |key, value|
+      = content_tag :div, value, class: key
+    %h1
+      #{@date.year}年#{@date.month}月#{@date.day}日の実績
+    %table
+      %tr
+        %th 出勤時間
+        %th 退勤時間
+        %tr
+          %td
+            = @date.attendance.strftime("%H:%M")
+          - if @date.retirement?
+            %td
+              = @date.retirement.strftime("%H:%M")
+          - else
+            %td
+              未
+    %h2 変更後
+    = form_with url: worktime_path, method: :patch do |f|
+      .input-box
+        .input-box__go
+          = f.label  :go  , "出勤時間指定"
+          %br
+          = f.select :go_hour  , @hours
+          = f.label  :go_hour  , "時"
+          = f.select :go_minute  , @minutes
+          = f.label  :go_minute  , "分"
+        .input-box__ret
+          = f.label  :ret , "退勤時間指定"
+          %br
+          = f.select :ret_hour , @hours
+          = f.label  :ret_hour , "時"
+          = f.select :ret_minute , @minutes
+          = f.label  :ret_minute , "分"
+        = f.submit "更新"
+
+    = link_to worktime_path(current_user.id) ,class: "btn" do
+      前ページに戻る

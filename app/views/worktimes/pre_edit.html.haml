@@ -1,0 +1,19 @@
+.wrapper
+  = render "sheard/header"
+
+  .menu
+    - if @datas.present?
+      - @datas.each do |data|
+        .data
+          =link_to go_workshow_worktimes_path(year: data.year, month: data.month), class: "data__link", method: :POST do
+            #{data.year}年#{data.month}月の出勤
+    - else
+      %h1
+        あなたはまだ出勤したことがありません。
+
+    .linker
+      打刻忘れがある場合は
+      = link_to new_worktime_path , class: "linker__link", data: { "turbolinks"=> false } do
+        こちら
+    = link_to worktime_path(current_user.id) ,class: "btn" do
+      前ページに戻る

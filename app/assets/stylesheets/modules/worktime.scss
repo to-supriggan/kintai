@@ -36,6 +36,16 @@
         transform: translateY(6px);
         transition-duration: .1s;
       }
+
+      .linker {
+        padding: 20px;
+        color: #ddd;
+        text-align: right;
+        &__link {
+          color: $color_skyblue;
+          text-decoration: underline;
+        }
+      }
     }
 
     .display-space {
@@ -52,6 +62,52 @@
         color: $color_white;
         height: 45px;
         line-height: 45px;
+      }
+    }
+  }
+
+  .menu {
+    form {
+      text-align: center;
+  
+      input[type='submit'] {
+        color: $color_white;
+        font-size: 1.5rem;
+        display: block;
+        cursor: pointer;
+        margin: 5px auto 30px;
+        padding: 10px 35px;
+        border-radius: 50px;
+        text-align: center;
+        text-decoration: inherit;
+        background: #4682b4;
+        box-shadow: 0 6px 0 #336699, 0 12px 0 rgba(0,0,0,.2);
+        transition: color .3s, background .3s, box-shadow .3s, transform 0.3s;
+        outline:none;
+        border-style: none;
+      }
+      input[type='submit']:hover {
+        background: #3e62ad;
+        box-shadow: 0 3px 0 #243d5c, 0 6px 0 rgba(0,0,0,.2);
+        transform: translateY(3px);
+      }
+      input[type='submit']:active {
+        background: #336699;
+        box-shadow: 0 0 0 #202f55, 0 0 0 rgba(0,0,0,.2);
+        transform: translateY(6px);
+        transition-duration: .1s;
+      }
+  
+      select {
+        font-size: 1.2rem;
+        height: 30px;
+        width: 80px;
+        margin: 5px;
+      }
+    
+      label {
+        color: $color_white;
+        font-size: 1.25rem;
       }
     }
   }

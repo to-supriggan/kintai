@@ -1,0 +1,34 @@
+.wrapper
+  = render "sheard/header"
+
+  .menu
+    %h2 打刻
+    = form_with url: worktimes_path, method: :post do |f|
+      .input-box
+        .input-box__go
+          = f.label  :day  , "出勤日指定"
+          %br
+          = f.select :year    , @years, selected: @now_day.strftime("%Y")
+          = f.label  :year    , "年"
+          = f.select :month   , @months, selected: @now_day.strftime("%m")
+          = f.label  :month   , "月"
+          = f.select :day     , @days, selected: @now_day.strftime("%d")
+          = f.label  :day     , "日"
+          %br
+          = f.label  :go  , "出勤時間指定"
+          %br
+          = f.select :go_hour    , @hours
+          = f.label  :go_hour    , "時"
+          = f.select :go_minute  , @minutes
+          = f.label  :go_minute  , "分"
+          %br
+        .input-box__ret
+          = f.label  :ret , "退勤時間指定"
+          %br
+          = f.select :ret_hour   , @hours
+          = f.label  :ret_hour   , "時"
+          = f.select :ret_minute , @minutes
+          = f.label  :ret_minute , "分"
+        = f.submit "登録"
+    = link_to pre_edit_worktimes_path ,class: "btn" do
+      前ページに戻る

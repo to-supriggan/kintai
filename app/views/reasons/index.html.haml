@@ -11,7 +11,7 @@
       .input-box__day
         = f.label  :day   , "休日指定"
         %br
-        = f.select :day   , @days
+        = f.select :day   , @days, selected: @now_day
       .input-box__reason
         = f.label  :reason, "休む理由"
         %br
