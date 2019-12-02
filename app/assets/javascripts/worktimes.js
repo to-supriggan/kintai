@@ -8,11 +8,12 @@ $(function(){
 
     let last_day = new Date(dt.getFullYear(), dt.getMonth(), 0);
 
-    // 
+    // 日付をリセット
     $("#day option").each( function(){
       $(this).remove();
     });
 
+    // 日付を再作成
     let i = 1;
     while (i <= last_day.getDate()) {
       $("#day").append( function(){
@@ -30,11 +31,12 @@ $(function(){
 
     let last_day = new Date(dt.getFullYear(), dt.getMonth(), 0);
 
-    // 
+    // 日付をリセット
     $("#day option").each( function(){
       $(this).remove();
     });
 
+    // 日付を再作成
     let i = 1;
     while (i <= last_day.getDate()) {
       $("#day").append( function(){
