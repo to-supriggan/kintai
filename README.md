@@ -27,16 +27,16 @@ $ git clone https://github.com/to-supriggan/kintai.git
 
 ## 表示サンプル
 - 初期表示画面
-<img src="https://gyazo.com/701ce0d9cd08020385254c103e1e57ad" max-width="100%;" />
+<img src="https://user-images.githubusercontent.com/57216305/71879153-bfab6380-3170-11ea-9f55-43314dfbd8b3.png" max-width="100%;" />
 
 - ログイン完了後画面
-<img src="https://gyazo.com/3c2d121172afe63f973ffb464c7901fc" max-width="100%;" />
+<img src="https://user-images.githubusercontent.com/57216305/71879211-e2d61300-3170-11ea-8e73-a0765eac053f.png" max-width="100%;" />
 
 - 勤怠状況画面
-<img src="https://gyazo.com/b966a82ba169d64f48f315fcae0555f3" max-width="100%;" />
+<img src="https://user-images.githubusercontent.com/57216305/71879242-f8e3d380-3170-11ea-906f-01cd651345fd.png" max-width="100%;" />
 
 - 休日事由画面
-<img src="https://gyazo.com/8de47876b9504373181158fdb3ac116d" max-width="100%;" />
+<img src="https://user-images.githubusercontent.com/57216305/71879279-131db180-3171-11ea-82f2-29ee3025c326.png" max-width="100%;" />
 
 - 月間実績画面
-<img src="https://gyazo.com/4662d296017d25198b0604308ca105c3" max-width="100%;" />
+<img src="https://user-images.githubusercontent.com/57216305/71879311-2761ae80-3171-11ea-8e55-7deb986d2e56.png" max-width="100%;" />
