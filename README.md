@@ -8,6 +8,12 @@
 
 ```
 $ git clone https://github.com/to-supriggan/kintai.git
+$ cd kintai
+$ bundle install
+$ rails db:create
+$ rails db:migrate
+$ rails s
+http://localhost:3000/
 ```
 
 2.アカウントを作成し、利用してください。
