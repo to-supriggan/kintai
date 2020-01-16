@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: kintai_production
-  username: kintai
-  password: <%= ENV['KINTAI_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
