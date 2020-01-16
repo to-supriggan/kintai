@@ -53,7 +53,7 @@ class WorktimesController < ApplicationController
 
       if @start_time_to_time <= @end_time_to_time
         # 退勤時間が出勤時間よりも遅く設定されている場合（正常）
-        @update_day = Worktime.find_by(params[:id])
+        @update_day = Worktime.find(params[:id])
         if !Reason.all.where("user_id = ? and year = ? and month = ? and day = ?", current_user.id, @update_day.year, @update_day.month, @update_day.day).blank?
           flash[:notice] = "あなたは指定日休んでいます。"
         elsif Worktime.all.where("user_id = ? and year = ? and month = ? and day = ?", current_user.id, @update_day.year, @update_day.month, @update_day.day).blank?
